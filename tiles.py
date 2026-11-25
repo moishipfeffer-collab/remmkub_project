@@ -39,5 +39,25 @@ def deal_deck(deck:list):
         comp.append(deck.pop(0))
     return player,comp
 
+def get_tile_index(tiels,hand):
+    indexes = []
+    for tiel in tiels:
+        indexes.append(hand.index(tiel))
+    return indexes
+
+def femove_tiles_from_hand(hand,tiles):
+    
 
 
+def play_set(hand:list, table:list, indexes:list):
+    play_tiles = []
+    for index in indexes:
+        play_tiles.append(hand[index])
+    table.append(play_tiles)     
+        
+
+
+
+
+def draw_tile(deck:list,hand:list):
+    hand.append(deck.pop(0))
