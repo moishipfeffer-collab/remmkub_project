@@ -8,7 +8,7 @@ def get_played_tiles(indexes,hand):
 
 def read_player_move(hand):
     while True:
-        choises = input("Choose tile positions or D to draw: > ")
+        choises = input("\nChoose tile positions or D to draw: > ")
         if choises.strip().lower() == "d":
             return None
         try:
@@ -50,6 +50,19 @@ def find_computer_move(hand):
             return choosen_tiels
     return None
                 
+def check_winner(player,comp):
+    if len(player) == 0:
+        print("======= PLAYER IS THE WINNER ========")
+        return True
+    elif len(comp) == 0:
+        print("======= COPUTER IS THE WINNER ========")
+        return True
+    return None
 
-        
-            
+def check_less_tiles(player,comp):
+    if len(player) < len(comp):
+        print("\n======= PLAYER WIN =======")
+    elif len(player) > len(comp):
+        print("\n====== COMPUTER WIN ======")
+    else:
+        print("\n======= DRAW =======")
