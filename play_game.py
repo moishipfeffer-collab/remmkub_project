@@ -17,10 +17,8 @@ def play_game():
         if move == None:
             draw_tile(deck,hand)
         else:
-            indexes = get_tile_index(move,hand)
-            print(indexes)
-            print(len(hand))
-            play_set(hand,table,indexes)
+            print(move)
+            play_set(hand,table,move)
         count += 1
 
 

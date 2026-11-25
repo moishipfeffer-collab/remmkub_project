@@ -14,7 +14,7 @@ def read_player_move(hand):
         try:
             choises = list(map(int,choises.split()))  
         except ValueError: 
-            print("enter nums only!")
+            print("enter nums or D only!")
             continue
         if check_index(choises,hand):
             choosen_tiles = get_played_tiles(choises,hand)
@@ -35,7 +35,7 @@ def find_computer_move(hand):
         choosen_tiels = [first,second,third]
         if is_valid_set(choosen_tiels):
             for i in range(len(list_by_num)):
-                if list_by_num[i][0] == choosen_tiels[-1][0]:
+                if list_by_num[i][0] == choosen_tiels[-1][0] and list_by_num[i] not in choosen_tiels:
                     choosen_tiels.append(list_by_num[i])
             return choosen_tiels
     for i in range(len(list_by_color) - 2):
@@ -45,7 +45,7 @@ def find_computer_move(hand):
         choosen_tiels = [first,second,third]
         if is_valid_set(choosen_tiels):
             for i in range(len(list_by_color)):
-                if list_by_color[i][0] == choosen_tiels[-1][0] + 1 and list_by_color[i][1] == choosen_tiels[-1][1]:
+                if list_by_color[i][0] == choosen_tiels[-1][0] + 1 and list_by_color[i][1] == choosen_tiels[-1][1] and list_by_color[i] not in choosen_tiels:
                     choosen_tiels.append(list_by_color[i]) 
             return choosen_tiels
     return None

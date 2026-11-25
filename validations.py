@@ -15,15 +15,18 @@ def is_valid_set(tiles:list):
     if len(tiles) < 3:
         return False
     sorted_tiels_num = sorted(tiles,key=lambda t:t[0])
+    valid_same_color = True
+    valid_same_num = True
     for i in range(len(tiles) - 1):
         if tiles.count(tiles[i]) > 1:
             return False
-        if sorted_tiels_num[i][0] == sorted_tiels_num[i+1][0]-1 and sorted_tiels_num[i][1] == sorted_tiels_num[i+1][1]:
-            continue
-        else:
-            return False  
-        if sorted_tiels_num[i][0] == sorted_tiels_num[i+1][0]:
-            continue
-        else:
-            return False
-    return True 
+        if sorted_tiels_num[i][0] != sorted_tiels_num[i+1][0]-1 or sorted_tiels_num[i][1] != sorted_tiels_num[i+1][1]:
+            valid_same_color = False
+        if sorted_tiels_num[i][0] != sorted_tiels_num[i+1][0]:
+            valid_same_num = False
+
+    if valid_same_num or valid_same_color: 
+        return True
+    
+    else:
+        return False 

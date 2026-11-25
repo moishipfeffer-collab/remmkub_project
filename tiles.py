@@ -45,16 +45,20 @@ def get_tile_index(tiels,hand):
         indexes.append(hand.index(tiel))
     return indexes
 
-def femove_tiles_from_hand(hand,tiles):
-    
+def remove_tiles_from_hand(hand:list,tiles):
+    for tile in tiles:
+        hand.remove(tile)
 
 
-def play_set(hand:list, table:list, indexes:list):
+
+def play_set(hand:list, table:list, tiles:list):
+    indexes = get_tile_index(tiles,hand)
     play_tiles = []
     for index in indexes:
         play_tiles.append(hand[index])
     table.append(play_tiles)     
-        
+    remove_tiles_from_hand(hand,tiles)
+
 
 
 
