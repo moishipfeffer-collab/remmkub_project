@@ -60,6 +60,7 @@ def check_winner(player,comp):
     return None
 
 def check_less_tiles(player,comp):
+    print(f"\nPlayrt: {len(player)} tires\nComputer: {len(comp)} tires")
     if len(player) < len(comp):
         print("\n======= PLAYER WIN =======")
     elif len(player) > len(comp):

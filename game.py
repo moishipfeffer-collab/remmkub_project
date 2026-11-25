@@ -14,6 +14,7 @@ def play_game():
         if check_winner(player,comp):
             break
         if len(deck) == 0:
+            print("======= GAME OVER ========")
             check_less_tiles(player,comp)
             break
         if count % 2 == 0:
